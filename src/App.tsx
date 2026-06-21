@@ -24,7 +24,7 @@ function App() {
 
   const totalPages = Math.ceil(totalProducts / ITEMS_PER_PAGE);
 
-  // Sort products client-side
+  // Sorting the products at client-side
   const sortedProducts = useMemo(() => {
     const sorted = [...products];
     switch (sortBy) {
@@ -41,7 +41,7 @@ function App() {
     }
   }, [products, sortBy]);
 
-  // Fetch categories on mount
+  // Fetching the categories on mount
   useEffect(() => {
     const loadCategories = async () => {
       try {
@@ -54,7 +54,7 @@ function App() {
     loadCategories();
   }, []);
 
-  // Fetch products when category or page changes
+  // Fetching the products when category or page changes
   const loadProducts = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -87,7 +87,7 @@ function App() {
     loadProducts();
   }, [loadProducts]);
 
-  // Reset to page 1 when category or sort changes
+  // Reseting to page 1 when the category or sort is changed
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedCategory, sortBy]);
